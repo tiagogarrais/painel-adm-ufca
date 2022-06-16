@@ -1,4 +1,5 @@
-Painel de serviços da Administração - UFCA campus Brejo Santo
+## Painel de serviços da Administração - UFCA campus Brejo Santo
+
 Este site tem o objetivo de fornecer informações e serviços atualizados para toda a comunidade universitária da Universidade Federal do Cariri, campus Brejo Santo.
 
 A construção deste site se dará de forma gradativa porque não sou um programador profissional. Cada etapa do desenvolvimento do sistema será concluída com muito esforço e comemoração. Para não me perder no caminho, listarei abaixo cada etapa a ser cumprida e seguindo uma ordem lógica espero manter o sistema funcionando e ir adicionando novas funcionalidades pouco a pouco. Não será rápido e nem posso garantir uma frequência de desenvolvimento porque essa é uma atividade para se fazer nas horas vagas.
