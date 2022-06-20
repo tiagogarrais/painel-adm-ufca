@@ -1,6 +1,6 @@
-import { useSession, signIn, signOut } from "next-auth/react";
-import Head from "next/head";
+import { useSession, signIn } from "next-auth/react";
 import styles from "../styles/Home.module.css";
+import { MenuSuperior } from "../components/MenuSuperior";
 
 export default function Home() {
   const { data: session } = useSession();
@@ -8,18 +8,7 @@ export default function Home() {
   if (session) {
     return (
       <div className={styles.container}>
-        <Head>
-          <title>Sistema de testes - Adm Tiago</title>
-          <meta name="description" content="Sistema de testes - Adm. Tiago" />
-          <link rel="icon" href="/favicon.ico" />
-        </Head>
-
-        <header>
-          <p>
-            <button onClick={() => signOut()}>Sair</button>
-          </p>
-        </header>
-
+        <MenuSuperior/>
         <main className={styles.main}>
           <h1 className={styles.title}>
             Painel de serviços da Administração<br/>
@@ -28,7 +17,7 @@ export default function Home() {
           <a href="/ambientes-acesso"><button className={styles.title}>Acesso a ambientes</button></a>
         </main>
 
-        <footer className={styles.footer}>Powered by Adm. Tiago</footer>
+        <footer className={styles.footer}>Powered by Adm. Tiago Arrais - CRA 11.660</footer>
       </div>
     );
   }
