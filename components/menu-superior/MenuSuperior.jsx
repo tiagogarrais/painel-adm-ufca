@@ -8,17 +8,25 @@ export function MenuSuperior() {
   return (
     <>
       <Head>
-        <title>Painel de serviços da Administração Campus Brejo Santo</title>
+        <title>Painel da Administração Campus Brejo Santo</title>
         <meta
           name="description"
-          content="Painel de serviços da Administração Campus Brejo Santo"
+          content="Painel da Administração Campus Brejo Santo"
         />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <p className={styles.menuSuperior}>
-        Logado com o e-mail {session.user.email}
-        <button style={{marginLeft:"0.5rem"}} onClick={() => signOut()}>Sair</button>
-      </p>
+
+      <div className={styles.menuSuperior}>
+        <p>
+          <a href="/">Página Inicial</a>
+        </p>
+        <p>
+          Logado com o e-mail {session.user.email}
+          <button style={{ marginLeft: '0.5rem' }} onClick={() => signOut()}>
+            Sair
+          </button>
+        </p>
+      </div>
     </>
   )
 }

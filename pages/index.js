@@ -1,6 +1,7 @@
-import { useSession, signIn } from 'next-auth/react'
+import { useSession } from 'next-auth/react'
 import { MenuSuperior } from '../components/menu-superior/MenuSuperior'
 import { Footer } from '../components/footer/Footer'
+import {NaoLogado} from '../components/nao-logado/NaoLogado'
 
 export default function Home() {
   const { data: session } = useSession()
@@ -25,13 +26,6 @@ export default function Home() {
   }
 
   return (
-    <div>
-      <main>
-        <p>
-          {' '}
-          Não logado <button onClick={() => signIn()}>Sign in</button>{' '}
-        </p>
-      </main>
-    </div>
+    <NaoLogado />
   )
 }

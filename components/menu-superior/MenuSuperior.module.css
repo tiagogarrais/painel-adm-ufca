@@ -1,8 +1,7 @@
 .menuSuperior {
+  background-color: black;
   display: flex;
-  flex: 1;
-  padding: 1rem 0;
+  justify-content:space-around;
   border-bottom: 1px solid #eaeaea;
-  justify-content: center;
   align-items: center;
 }
