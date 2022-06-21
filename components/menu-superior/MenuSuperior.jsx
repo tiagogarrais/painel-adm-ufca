@@ -17,8 +17,7 @@ export function MenuSuperior() {
       </Head>
       <p className={styles.menuSuperior}>
         Logado com o e-mail {session.user.email}
-        <span>ﾠ</span>
-        <button onClick={() => signOut()}>Sair</button>
+        <button style={{marginLeft:"0.5rem"}} onClick={() => signOut()}>Sair</button>
       </p>
     </>
   )

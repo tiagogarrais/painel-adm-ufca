@@ -25,8 +25,8 @@ export default function Home() {
   }
 
   return (
-    <div className={styles.container}>
-      <main className={styles.main}>
+    <div>
+      <main>
         <p>
           {' '}
           Não logado <button onClick={() => signIn()}>Sign in</button>{' '}
