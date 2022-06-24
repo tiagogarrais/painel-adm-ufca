@@ -21,7 +21,7 @@ export function MenuSuperior() {
           <a href="/">Página Inicial</a>
         </p>
         <p>
-          Logado com o e-mail {session.user.email}
+          Bem vindo(a) {session.user.email}
           <button style={{ marginLeft: '0.5rem' }} onClick={() => signOut()}>
             Sair
           </button>
