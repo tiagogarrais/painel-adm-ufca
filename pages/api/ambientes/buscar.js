@@ -1,4 +1,4 @@
-import connect from '../../ambientes-acesso/mongodb'
+import connect from '../../../lib/mongodb-ambientes'
 
 export default async function buscarSala(request, response) {
   const { db } = await connect()
@@ -8,3 +8,4 @@ export default async function buscarSala(request, response) {
   response.setHeader('Cache-Control', 's-maxage=15, stale-while-revalidate')
   response.status(200).json(sala)
 }
+
