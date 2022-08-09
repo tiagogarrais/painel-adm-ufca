@@ -6,12 +6,13 @@ import { Footer } from '../../components/footer/Footer'
 import { MenuSuperior } from '../../components/menu-superior/MenuSuperior'
 import { NaoLogado } from '../../components/nao-logado/NaoLogado'
 
-export default function AmbientesAcesso() {
+export default function Ambientes(request, response) {
   const router = useRouter()
   const ambiente = router.query.ambiente
-  const tituloPagina = 'Permissão de acesso a ambientes'
+  const tituloPagina = 'Ambientes IFE'
   const { data: session } = useSession()
   const [sala, setSala] = useState('')
+
 
   function handleBuscarSala(event) {
     event.preventDefault()
@@ -22,39 +23,51 @@ export default function AmbientesAcesso() {
       return
     }
 
+    if ((isNaN(sala)) === true){
+      document.getElementById('aviso').innerHTML =
+      'O valor que você informou não era um número.'
+      return
+    }
+
     let regex = /ufca\.edu.br$/
     let testeEmailUfca = regex.test(session.user.email)
     if (testeEmailUfca === false) {
       document.getElementById('aviso').innerHTML =
-        'Você precisa fazer login com um e-mail @ufca.edu.br para enviar dados.'
+        'Você precisa fazer login com um e-mail @ufca.edu.br para acessar as informações.'
       return
     }
 
     document.getElementById('aviso').innerHTML = 'Buscando as informações, aguarde...'
     
-    buscarSala(sala)
+    let linksala = "/ambientes/" + sala
+    window.location.href = linksala
+
+
   }
 
-  async function buscarSala(sala) {
-    const res = await fetch('/api/ambientes/buscarSala')
+  async function buscarSala() {
+    const linksala2 = "/api/ambientes/buscarSala/"+sala
+    const res = await fetch(linksala2)
     const salaRecebida = await res.json()
     document.getElementById('aviso').innerHTML = 
       salaRecebida['nomeAmbiente'] +' '+'->'+' ' + salaRecebida['servidorResponsavel']
     setSala('')
   }
-
+  
 
   if (session) {
     return (
       <div>
         <Head>
-        <title>{tituloPagina}</title>
-        <meta name="description" content={tituloPagina} />
-        <link rel="icon" href="/favicon.ico" />
+          <title>{tituloPagina}</title>
+          <meta name="description" content={tituloPagina} />
+          <link rel="icon" href="/favicon.ico" />
         </Head>
         <MenuSuperior />
         <main>
-        <h1>{tituloPagina}</h1>
+        
+          <h1>{tituloPagina}</h1>
+          <div>Ambiente: {ambiente}</div>
 
           <form className="form" onSubmit={handleBuscarSala}>
             <input
@@ -68,7 +81,7 @@ export default function AmbientesAcesso() {
               style={{ backgroundColor: 'yellow', color: 'black' }}
             ></p>
           </form>
-          <div>Ambiente: {ambiente}</div>
+
 
 
         </main>

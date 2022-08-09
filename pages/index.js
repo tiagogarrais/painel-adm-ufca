@@ -16,7 +16,7 @@ export default function Home() {
             <br />
             <span>Campus Brejo Santo</span>
           </h1>
-          <a href="/ambientes-acesso">
+          <a href="/ambientes/0">
             <button>Acesso a ambientes</button>
           </a>
         </main>
