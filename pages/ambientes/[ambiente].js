@@ -13,8 +13,7 @@ export default function Ambientes(request, response) {
   const { data: session } = useSession()
   const [sala, setSala] = useState('')
 
-
-  function handleBuscarSala(event) {
+  function buscarSala(event) {
     event.preventDefault()
 
     if (sala === '') {
@@ -25,7 +24,7 @@ export default function Ambientes(request, response) {
 
     if ((isNaN(sala)) === true){
       document.getElementById('aviso').innerHTML =
-      'O valor que você informou não era um número.'
+      'O valor que você informou não é um número.'
       return
     }
 
@@ -41,19 +40,14 @@ export default function Ambientes(request, response) {
     
     let linksala = "/ambientes/" + sala
     window.location.href = linksala
-
-
   }
 
-  async function buscarSala() {
-    const linksala2 = "/api/ambientes/buscarSala/"+sala
-    const res = await fetch(linksala2)
-    const salaRecebida = await res.json()
-    document.getElementById('aviso').innerHTML = 
-      salaRecebida['nomeAmbiente'] +' '+'->'+' ' + salaRecebida['servidorResponsavel']
-    setSala('')
+  function dadosSala(){
+    let linksala = "../api/ambientes/" + ambiente
+    fetch(linksala)
+    
+    console.log(linksala);
   }
-  
 
   if (session) {
     return (
@@ -67,9 +61,11 @@ export default function Ambientes(request, response) {
         <main>
         
           <h1>{tituloPagina}</h1>
-          <div>Ambiente: {ambiente}</div>
+          <div>Ambiente:{ambiente}</div>
 
-          <form className="form" onSubmit={handleBuscarSala}>
+          {dadosSala()}
+
+          <form className="form" onSubmit={buscarSala}>
             <input
               placeholder="Qual o número da sala?"
               onChange={event => setSala(event.target.value)}
