@@ -12,6 +12,21 @@ export default function Ambientes(request, response) {
   const tituloPagina = 'Ambientes IFE'
   const { data: session } = useSession()
   const [sala, setSala] = useState('')
+  const linkApiSala = '../api/ambientes/' + ambiente
+  const dadosAmbiente = fetch(linkApiSala)
+    .then(function (dadosBrutos) {
+      return dadosBrutos.json()
+    })
+    .then(function (dadosJson) {
+      if (dadosJson.nomeAmbiente != null) {
+        document.getElementById('nomeAmbiente').innerText =
+          dadosJson.nomeAmbiente
+      }
+      if (dadosJson.servidorResponsavel != null) {
+        document.getElementById('servidorResponsavel').innerText =
+          dadosJson.servidorResponsavel
+      }
+    })
 
   function buscarSala(event) {
     event.preventDefault()
@@ -22,9 +37,9 @@ export default function Ambientes(request, response) {
       return
     }
 
-    if ((isNaN(sala)) === true){
+    if (isNaN(sala) === true) {
       document.getElementById('aviso').innerHTML =
-      'O valor que você informou não é um número.'
+        'O valor que você informou não é um número.'
       return
     }
 
@@ -36,17 +51,11 @@ export default function Ambientes(request, response) {
       return
     }
 
-    document.getElementById('aviso').innerHTML = 'Buscando as informações, aguarde...'
-    
-    let linksala = "/ambientes/" + sala
-    window.location.href = linksala
-  }
+    document.getElementById('aviso').innerHTML =
+      'Buscando as informações, aguarde...'
 
-  function dadosSala(){
-    let linksala = "../api/ambientes/" + ambiente
-    fetch(linksala)
-    
-    console.log(linksala);
+    let linksala = '/ambientes/' + sala
+    window.location.href = linksala
   }
 
   if (session) {
@@ -59,11 +68,10 @@ export default function Ambientes(request, response) {
         </Head>
         <MenuSuperior />
         <main>
-        
           <h1>{tituloPagina}</h1>
-          <div>Ambiente:{ambiente}</div>
-
-          {dadosSala()}
+          <h2 id="nomeAmbiente"></h2>
+          <p id="servidorResponsavel"></p>
+          <div>Chave número: {ambiente}</div>
 
           <form className="form" onSubmit={buscarSala}>
             <input
@@ -77,9 +85,6 @@ export default function Ambientes(request, response) {
               style={{ backgroundColor: 'yellow', color: 'black' }}
             ></p>
           </form>
-
-
-
         </main>
         <Footer />
       </div>
