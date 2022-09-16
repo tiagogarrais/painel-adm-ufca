@@ -20,9 +20,9 @@ export default function Ambientes() {
         </Head>
         <MenuSuperior />
         <main>
+          <BuscarAmbiente />
           <h1>{tituloPagina}</h1>
           <MostrarAmbiente />
-          <BuscarAmbiente />
         </main>
         <Footer />
       </div>

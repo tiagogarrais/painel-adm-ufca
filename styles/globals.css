@@ -18,6 +18,10 @@ td {
   padding: 0.5rem;
 }
 
+td {
+  border: none;
+}
+
 h1 {
   font-size: 3rem;
 }
