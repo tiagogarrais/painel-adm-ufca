@@ -14,23 +14,14 @@ export function MostrarAmbiente() {
         document.getElementById('nomeAmbiente').innerText =
           dadosJson.nomeAmbiente
       }
-      if (dadosJson.servidorResponsavel != null) {
-        document.getElementById('servidorResponsavel').innerText =
-          dadosJson.servidorResponsavel
-      }
+
       if (dadosJson.responsabilidadeLimpeza != null) {
         document.getElementById('responsabilidadeLimpeza').innerText =
           dadosJson.responsabilidadeLimpeza
       }
-      if (dadosJson.LarguraLesteOeste != null) {
-        document.getElementById('LarguraLesteOeste').innerText =
-          dadosJson.LarguraLesteOeste
-      }
-      if (dadosJson.comprimento != null) {
-        document.getElementById('comprimento').innerText = dadosJson.comprimento
-      }
-      if (dadosJson.altura != null) {
-        document.getElementById('altura').innerText = dadosJson.altura
+      if (dadosJson.frequenciaSemanalLimpeza != null) {
+        document.getElementById('frequenciaSemanalLimpeza').innerText =
+          dadosJson.frequenciaSemanalLimpeza
       }
     })
     .catch(function (e) {
@@ -39,28 +30,23 @@ export function MostrarAmbiente() {
 
   return (
     <>
-      <h2 id="nomeAmbiente"></h2>
-      <div>Chave número: {ambiente}</div>
-
-      <label>
-        Servidor Responsavel: <span id="servidorResponsavel"></span>
-      </label>
-      <br />
-
-      <label>
-        Largura Leste-Oeste: <span id="LarguraLesteOeste"></span>
-      </label>
-      <br />
-
-      <label>
-        Cumprimento: <span id="comprimento"></span>
-      </label>
-      <br />
-
-      <label>
-        Servente de Limpeza: <span id="responsabilidadeLimpeza"></span>
-      </label>
-      <br />
+      <h2 id="nomeAmbiente">Nome do ambiente</h2>
+      Chave número: {ambiente}
+      <table>
+        <h3>Informações sobre limpeza do ambiente</h3>
+        <tr />
+        <td>
+          Servente de limpeza: <span id="responsabilidadeLimpeza"></span>
+        </td>
+        <tr />
+        <td>
+          <label>
+            A limpeza completa deste ambiente é executada{' '}
+            <span id="frequenciaSemanalLimpeza"></span> vez(s) por semana.
+          </label>
+        </td>
+        <tr />
+      </table>
     </>
   )
 }

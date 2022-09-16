@@ -8,6 +8,39 @@ body {
   text-align: center;
 }
 
+table,
+td {
+  border: 0.1rem solid;
+  margin-top: 1rem;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 1rem;
+  padding: 0.5rem;
+}
+
+h1 {
+  font-size: 3rem;
+}
+
+h2 {
+  font-size: 2rem;
+}
+
+h3 {
+  font-size: 1.2rem;
+  text-decoration: underline;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: greenyellow;
+  border: 3px black;
+}
+
 a {
   color: rgb(167, 177, 255);
   text-decoration: none;
@@ -15,4 +48,5 @@ a {
 
 * {
   box-sizing: border-box;
+  font-size: 1rem;
 }

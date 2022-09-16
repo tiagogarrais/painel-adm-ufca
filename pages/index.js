@@ -1,7 +1,7 @@
 import { useSession } from 'next-auth/react'
 import { MenuSuperior } from '../components/menu-superior/MenuSuperior'
 import { Footer } from '../components/footer/Footer'
-import {NaoLogado} from '../components/nao-logado/NaoLogado'
+import { NaoLogado } from '../components/nao-logado/NaoLogado'
 
 export default function Home() {
   const { data: session } = useSession()
@@ -10,22 +10,18 @@ export default function Home() {
     return (
       <>
         <MenuSuperior />
-        <main>
-          <h1>
-            Painel de serviços da Administração
-            <br />
-            <span>Campus Brejo Santo</span>
-          </h1>
-          <a href="/ambientes/0">
-            <button>Acesso a ambientes</button>
-          </a>
-        </main>
+        <h1>
+          Serviços digitais da Administração
+          <br />
+          Campus Brejo Santo
+        </h1>
+        <a href="/ambientes/0">
+          <button>Ambientes - Campus Brejo Santo</button>
+        </a>
         <Footer />
       </>
     )
   }
 
-  return (
-    <NaoLogado />
-  )
+  return <NaoLogado />
 }
