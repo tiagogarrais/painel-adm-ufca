@@ -33,7 +33,7 @@ export function MostrarAmbiente() {
       <h2 id="nomeAmbiente">Nome do ambiente</h2>
       Chave número: {ambiente}
       <table>
-        <h3>Informações sobre limpeza do ambiente</h3>
+        <h3>LIMPEZA DO AMBIENTE</h3>
         <tr />
         <td>
           Servente de limpeza: <span id="responsabilidadeLimpeza"></span>
