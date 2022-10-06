@@ -1,6 +1,7 @@
 import { useSession, signOut } from 'next-auth/react'
 import Head from 'next/head'
 import styles from './MenuSuperior.module.css'
+import Link from 'next/link'
 
 export function MenuSuperior() {
   const { data: session } = useSession()
@@ -18,7 +19,7 @@ export function MenuSuperior() {
 
       <div className={styles.menuSuperior}>
         <p>
-          <a href="/">Página Inicial</a>
+          <Link href="/">Página Inicial</Link>
         </p>
         <p>
           Bem vindo(a) {session.user.email}
